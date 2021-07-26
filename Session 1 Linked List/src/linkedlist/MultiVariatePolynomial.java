@@ -8,9 +8,9 @@ class MultiNode{
 	String variate;
 	MultiNode next;
 	
-	 MultiNode(String variant, int degree) {
+	 MultiNode(String variate, int degree) {
 		this.degree = degree;
-		this.variate = variant;
+		this.variate = variate;
 		next = null;
 	}
 }
@@ -21,30 +21,31 @@ class MultiNode{
 public class MultiVariatePolynomial {
 	LinkedList<MultiNode> multiVarPolynomial = new LinkedList<>();
 	
-	/** Add term to the list
+	/**
+	 * Add term to the list
 	 * @param term String array where index define degree
 	 */
 	public void addMVP(String[] term) {
-		if(term.length<=0)
-			throw new AssertionError("Wrong Term");
-		
-		MultiNode multiNode = null, nextNode,node=null;
-		if(term[0].equals("0")) return;
-		
+		if (term.length <= 0)
+			throw new AssertionError("Invalid Term");
+
+		MultiNode previousNode = null, presentNode, head = null;
+		if (term[0].equals("0"))
+			return;
+
 		for (int i = 0; i < term.length; i++) {
-			if(term[i].equals("0")) continue;
-			if(multiNode==null) {
-				nextNode =  new MultiNode(term[i], i);
-				node=nextNode;
-				multiNode = nextNode;
-			}else {
-				nextNode =  new MultiNode(term[i], i);
-				multiNode.next = nextNode;
-				multiNode = nextNode;
-			}	
-		
+			if (term[i].equals("0"))
+				continue;
+			if (previousNode == null) {
+				presentNode = new MultiNode(term[i], i);
+				head = presentNode;
+			} else {
+				presentNode = new MultiNode(term[i], i);
+				previousNode.next = presentNode;
+			}
+			previousNode = presentNode;
 		}
-		multiVarPolynomial.append(node);
+		multiVarPolynomial.append(head);
 	}
 	
 	/**
@@ -68,7 +69,7 @@ public class MultiVariatePolynomial {
 	 * @return highest degree
 	 */
 	public int calculateMaxDegree() {
-		if( multiVarPolynomial.getHead()==null)
+		if(multiVarPolynomial.getHead()==null)
 			throw new AssertionError("List is Empty");
 		Node<MultiNode> node = multiVarPolynomial.getHead();
 		int max=0, sum=0;
