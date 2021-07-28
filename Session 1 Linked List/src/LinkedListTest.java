@@ -32,7 +32,7 @@ public class LinkedListTest {
 	}
 
 	@Test
-	public void TesAppendingNodes() {
+	public void TestAppendingNodes() {
 		linkedList.append(10);
 		linkedList.append(new Node<Integer>(20));
 		assertEquals(2, linkedList.getLength());

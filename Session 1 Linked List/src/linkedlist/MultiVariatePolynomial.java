@@ -15,7 +15,7 @@ class MultiNode{
 	}
 }
 
-/**
+/**	
  * Implement multivariate polynomial
  */
 public class MultiVariatePolynomial {
