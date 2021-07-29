@@ -1,12 +1,13 @@
 package queue;
+
 public class Queue<T> implements InterfaceQueue<T> {
 	private final int MAX_LENGTH;
 	private T[] arr;
 	private int front = -1, rear = -1;
-	
+
 	public Queue(int N) {
 		MAX_LENGTH = N;
-		this.arr = (T[])new Object[MAX_LENGTH];
+		this.arr = (T[]) new Object[MAX_LENGTH];
 	}
 
 	@Override
@@ -32,31 +33,34 @@ public class Queue<T> implements InterfaceQueue<T> {
 		T element;
 		if (isEmpty())
 			throw new AssertionError("Queue is empty.");
-		
+
 		element = arr[front];
-		if (front == MAX_LENGTH - 1 && front != rear){
+		if (front == MAX_LENGTH - 1 && front != rear) {
 			front = 0;
-		} else if (front == rear) { 
+		} else if (front == rear) {
 			front = rear = -1;
 		} else {
 			front++;
 		}
 		return element;
 	}
-	
+
 	/**
-	 *  Method to check if Queue is Empty
-	 * @return  true if capacity is Empty
+	 * Method to check if Queue is Empty
+	 * 
+	 * @return true if capacity is Empty
 	 */
 	public boolean isEmpty() {
 		return (front == -1 && rear == -1) ? true : false;
 	}
-	
-	/** Method to check if Queue is Full
+
+	/**
+	 * Method to check if Queue is Full
+	 * 
 	 * @return true if capacity is full
 	 */
 	public boolean isFull() {
-		return ((front == 0 && rear == MAX_LENGTH-1) || rear==front-1) ? true : false;
+		return ((front == 0 && rear == MAX_LENGTH - 1) || rear == front - 1) ? true : false;
 	}
 
 	/**
@@ -65,18 +69,17 @@ public class Queue<T> implements InterfaceQueue<T> {
 	public void print() {
 		System.out.println();
 		if (front <= rear) {
-			for (int i=front; i<=rear; i++) {
+			for (int i = front; i <= rear; i++) {
 				System.out.print(arr[i] + "\t");
 			}
-		}else {
-			for (int i=front; i<MAX_LENGTH; i++) {
+		} else {
+			for (int i = front; i < MAX_LENGTH; i++) {
 				System.out.print(arr[i] + "\t");
 			}
-			for (int i=0; i<=rear; i++) {
+			for (int i = 0; i <= rear; i++) {
 				System.out.print(arr[i] + "\t");
 			}
 		}
 	}
 
-	 
 }

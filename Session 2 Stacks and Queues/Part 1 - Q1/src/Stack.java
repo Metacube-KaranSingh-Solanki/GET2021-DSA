@@ -1,12 +1,13 @@
 
 /**
  * Generic Stack class Implements the StackInterface
+ * 
  * @param <T>
  */
-public class Stack<T> implements StackInterface<T>{
+public class Stack<T> implements StackInterface<T> {
 	private T[] stackArray;
 	private int top = -1;
-	
+
 	public Stack(int stackSize) {
 		this.stackArray = (T[]) new Object[stackSize];
 	}
@@ -29,22 +30,22 @@ public class Stack<T> implements StackInterface<T>{
 
 	@Override
 	public T peek() {
-		if(isEmpty())
+		if (isEmpty())
 			throw new AssertionError("Stack is empty!");
 		return stackArray[top];
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return top==-1? true: false;
+		return top == -1 ? true : false;
 	}
 
 	@Override
 	public boolean isFull() {
-		return top==stackArray.length-1? true: false;
+		return top == stackArray.length - 1 ? true : false;
 	}
 
 	public int getStackSize() {
-		return top+1;
+		return top + 1;
 	}
 }

@@ -18,8 +18,8 @@ public class QueueTest {
 		assertTrue(queue.enqueue(3));
 		assertTrue(queue.enqueue(4));
 	}
-	
-	/**Adding first Element to queue - queue is empty*/
+
+	/** Adding first Element to queue - queue is empty */
 	@Test
 	public void TestFirstElementEnqueue() {
 		queue = new Queue<Integer>(5);
@@ -27,37 +27,39 @@ public class QueueTest {
 		assertTrue(queue.enqueue(6));
 	}
 
-	/**Adding the Last element to the queue*/
+	/** Adding the Last element to the queue */
 	@Test
 	public void TestLastElementEnqueue() {
 		assertTrue(queue.enqueue(5));
 	}
-	
-	/**Test Queue is full*/
+
+	/** Test Queue is full */
 	@Test
 	public void TestQueueIsFullEnqueue() {
 		assertTrue(queue.enqueue(5));
 		assertTrue(queue.isFull());
 		assertFalse(queue.enqueue(6));
 	}
-	
-	/**Front > 0 rear == MAX_LENGTH - 1*/
+
+	/** Front > 0 rear == MAX_LENGTH - 1 */
 	@Test
 	public void TestCircularQueue() {
 		assertTrue(queue.enqueue(5)); // rear = 4
-		assertEquals(1,queue.dequeue()); //Front = 1
+		assertEquals(1, queue.dequeue()); // Front = 1
 		assertTrue(queue.enqueue(6)); // rear = 0
 	}
-	
+
 	/**
 	 * Test Queue is empty, throws error
 	 */
 	@Test
 	public void TestEmptyDequeu() {
 		queue = new Queue<Integer>(5);
-		assertThrows(AssertionError.class,()->{queue.dequeue();});
+		assertThrows(AssertionError.class, () -> {
+			queue.dequeue();
+		});
 	}
-	
+
 	/**
 	 * Test Dequeue
 	 */
@@ -65,8 +67,8 @@ public class QueueTest {
 	public void TestDequeue() {
 		assertEquals(1, queue.dequeue());
 	}
-	
-	/**Front == rear Dequeue */
+
+	/** Front == rear Dequeue */
 	@Test
 	public void TestFrontRearEqualDequeue() {
 		assertTrue(queue.enqueue(5));
@@ -77,8 +79,8 @@ public class QueueTest {
 		assertEquals(5, queue.dequeue());
 		assertTrue(queue.isEmpty());
 	}
-	
-	/**Front>Queue and set front to 0*/
+
+	/** Front>Queue and set front to 0 */
 	@Test
 	public void TestResetFrontToZero() {
 		assertTrue(queue.enqueue(5));
@@ -90,5 +92,5 @@ public class QueueTest {
 		assertTrue(queue.enqueue(8));
 		assertEquals(5, queue.dequeue());
 	}
-	
+
 }
