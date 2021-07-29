@@ -15,7 +15,7 @@ public interface InterfaceQueue<T> {
 	boolean enqueue(T data);
 
 	/**
-	 * Add Element in the queue of type T
+	 * Remove Element in the queue of type T
 	 * 
 	 * @return element that removed
 	 */
