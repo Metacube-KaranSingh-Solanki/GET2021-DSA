@@ -48,5 +48,12 @@ public class Stack<T> implements StackInterface<T> {
 	public int getStackSize() {
 		return top + 1;
 	}
-	
+
+	public Object[] getStackAsArray() {
+		return stackArray;
+	}
+
+	public void emptyStack() {
+		top = -1;
+	}
 }
