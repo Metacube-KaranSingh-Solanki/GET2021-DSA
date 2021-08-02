@@ -1,7 +1,6 @@
 /**
  * Node with highest priority removed from the queue, for e.g. (1, "A"), (2,
- * "B"), node with priority 2 will dequeue first Circularly data is added and
- * queue is sorted
+ * "B"), node with priority 2 will dequeue first
  */
 
 public class PriorityQueue<T> implements PriorityQueueInterface<T> {
@@ -9,6 +8,11 @@ public class PriorityQueue<T> implements PriorityQueueInterface<T> {
 	private final int MAX_LENGTH;
 	private int front = -1, rear = -1;
 
+	/**
+	 * Represents a single node
+	 * 
+	 * @param <T> Data type this node will hold
+	 */
 	class Node<T> {
 		private int priority;
 		private T data;
@@ -28,11 +32,22 @@ public class PriorityQueue<T> implements PriorityQueueInterface<T> {
 
 	}
 
+	/**
+	 * Constructor to initialize the Queue array
+	 * 
+	 * @param N maximum size of array
+	 */
 	public PriorityQueue(int N) {
 		this.arr = new Node[N];
 		this.MAX_LENGTH = N;
 	}
 
+	/**
+	 * Add Element in the queue of type T with given priority.
+	 * 
+	 * @param data element to be added
+	 * @return true if element is added
+	 */
 	@Override
 	public boolean enqueue(T data, int priority) {
 		Node<T> newNode = new Node<>(priority, data);
@@ -54,13 +69,16 @@ public class PriorityQueue<T> implements PriorityQueueInterface<T> {
 					rear++;
 					break;
 				}
-
 			}
-
 		}
 		return isAdded;
 	}
 
+	/**
+	 * Remove the Element in the queue of type T
+	 * 
+	 * @return Removes the highest priority item and returns the item
+	 */
 	@Override
 	public T dequeue() {
 		T element;
@@ -75,11 +93,21 @@ public class PriorityQueue<T> implements PriorityQueueInterface<T> {
 		return element;
 	}
 
+	/**
+	 * Method to check if Queue is Empty
+	 * 
+	 * @return true if capacity is Empty
+	 */
 	@Override
 	public boolean isEmpty() {
 		return (front == -1 && rear == -1);
 	}
 
+	/**
+	 * Method to check if Queue is Full
+	 * 
+	 * @return true if capacity is full
+	 */
 	@Override
 	public boolean isFull() {
 		return ((front == 0 && rear == MAX_LENGTH - 1) || rear == front - 1);
