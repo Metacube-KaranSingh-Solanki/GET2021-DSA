@@ -2,16 +2,29 @@
 public class Bowler implements Comparable<Bowler>{
 	private String name;
 	private int ballsLeft;
-	
+
+	/**
+	 * Constructor of Bowler
+	 * @param name
+	 * @param ballsLeft
+	 */
 	public Bowler(String name, int ballsLeft) {
 		this.name = name;
 		this.ballsLeft = ballsLeft;
 	}
 
+	/**
+	 * Get name of the bowler
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Get balls left
+	 * @return
+	 */
 	public int getBallsLeft() {
 		return ballsLeft;
 	}
