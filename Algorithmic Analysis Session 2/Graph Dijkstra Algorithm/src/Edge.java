@@ -1,6 +1,6 @@
 
 /**
- *
+ * Represents a single edge with source, destination and weight
  */
 public class Edge implements Comparable<Edge>{
 	
